@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('hello/{nev}',function(string $nev){
+    return $nev;
+})->whereAlpha('nev')
+->name("hello-nev");
+
+
+Route::get('hello',function(){
+    return "Hello";
+})->name("hello");

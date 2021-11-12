@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::get('hello/{nev}',function(string $nev){
     return $nev;
 })->whereAlpha('nev')

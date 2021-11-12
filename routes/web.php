@@ -13,10 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/doctor-house', function () {
+    return 'Nemcsak az emberek megalázásával lehet a gőzt kiereszteni; mondják,
+    hogy a bowling jobb még ennél is.';
 });
+Route::get('/uvegtigris/csoki', function () {
+    return "Mennyire vagy túsz? Sörhöz odaférsz?";
+});
+Route::get('/uvegtigris/lali', function () {
+    return "Az egybubis az egy kicsit drágább, mert hát abból ki kellett vennem
+    a többi bubit.";
+});
+Route::get('/uvegtigris/lali', function () {
+    return "Az egybubis az egy kicsit drágább, mert hát abból ki kellett vennem
+    a többi bubit.";
+});
+Route::get('/naptar/ma', function () {
+    return date('Y.m.d');
+});
+Route::get('/naptar/holnap', function () {
 
+    return date('Y.m.d');
+});
+/*
 Route::get('hello/{nev}',function(string $nev){
     return $nev;
 })->whereAlpha('nev')
@@ -25,4 +44,4 @@ Route::get('hello/{nev}',function(string $nev){
 
 Route::get('hello',function(){
     return "Hello";
-})->name("hello");
+})->name("hello");*/

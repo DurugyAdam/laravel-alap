@@ -33,7 +33,7 @@ Route::get('/naptar/ma', function () {
 });
 Route::get('/naptar/holnap', function () {
 
-    return date('Y.m.d');
+    return date("Y.m.d");
 });
 /*
 Route::get('hello/{nev}',function(string $nev){

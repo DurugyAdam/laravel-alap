@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use PhpParser\Node\Expr\Cast\String_;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,36 @@ Route::get('/naptar/ma', function () {
 });
 Route::get('/naptar/holnap', function () {
 
-    return date("Y.m.d");
+    return date("Y.m.d", strtotime('+1 day'));
+});
+Route::get('/naptar/tegnap', function () {
+
+    return date("Y.m.d", strtotime('-1 day'));
+});
+Route::get('/szamologep/{a}+{b}', function ($a,$b) {
+    return $a+$b;
+});
+Route::get('/szamologep/{a}-{b}', function ($a,$b) {
+    return $a-$b;
+});
+Route::get('/szamologep/{a}*{b}', function ($a,$b) {
+    return $a*$b;
+});
+Route::get('/szamologep/{a}/{b}', function ($a,$b) {
+    return $a/$b;
+});
+Route::get('/hetnapja/{szam}', function ($szam) {
+    $napok =["hétfő","kedd","szerda","csütörtök","péntek", "szombat", "vasárnap"];
+    return $napok[$szam-1];
+});
+Route::get('/hetnapja/{nap}', function ($nap) {
+    $napok =["hétfő","kedd","szerda","csütörtök","péntek", "szombat", "vasárnap"];
+    for($i=0;$i<count($napok);$i++){
+        if($nap == $napok[$i]){
+            return $i+1;
+        }
+    }
+
 });
 /*
 Route::get('hello/{nev}',function(string $nev){

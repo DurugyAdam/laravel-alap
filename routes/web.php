@@ -52,11 +52,11 @@ Route::get('/szamologep/{a}*{b}', function ($a,$b) {
 Route::get('/szamologep/{a}/{b}', function ($a,$b) {
     return $a/$b;
 });
-Route::get('/hetnapja/{szam}', function ($szam) {
+Route::get('/hetnapja/{szam}', function (string $szam) {
     $napok =["hétfő","kedd","szerda","csütörtök","péntek", "szombat", "vasárnap"];
     return $napok[$szam-1];
 });
-Route::get('/hetnapja/{nap}', function ($nap) {
+Route::get('/hetnapja/{nap}', function (int $nap) {
     $napok =["hétfő","kedd","szerda","csütörtök","péntek", "szombat", "vasárnap"];
     for($i=0;$i<count($napok);$i++){
         if($nap == $napok[$i]){
